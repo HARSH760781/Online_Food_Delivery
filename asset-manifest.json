@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Online_Food_Delivery/static/css/main.da5297fa.css",
+    "main.js": "/Online_Food_Delivery/static/js/main.94f22ad2.js",
+    "static/media/empty.gif": "/Online_Food_Delivery/static/media/empty.644ecc4e5dd68dfc0977.gif",
+    "static/media/login-animation.gif": "/Online_Food_Delivery/static/media/login-animation.97a8f494ac4826dd1781.gif",
+    "static/media/logo.png": "/Online_Food_Delivery/static/media/logo.9ac0109d6d9a65587be6.png",
+    "index.html": "/Online_Food_Delivery/index.html",
+    "main.da5297fa.css.map": "/Online_Food_Delivery/static/css/main.da5297fa.css.map",
+    "main.94f22ad2.js.map": "/Online_Food_Delivery/static/js/main.94f22ad2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.da5297fa.css",
+    "static/js/main.94f22ad2.js"
+  ]
+}
