@@ -1,0 +1,21 @@
+{
+  "name": "final-mern-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build":"cd backend && npm install && cd ../frontend && npm install && npm run build",
+    "start":"nodemon backend/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HARSH760781/Online_Food_Delivery.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HARSH760781/Online_Food_Delivery/issues"
+  },
+  "homepage": "https://github.com/HARSH760781/Online_Food_Delivery#readme"
+}
