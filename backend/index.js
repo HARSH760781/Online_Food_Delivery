@@ -9,6 +9,7 @@ const app = express();
 app.use(cors(
   {
     origin:['https://online-food-delivery-jxii.onrender.com']
+  }
 ));
 app.use(express.json({ limit: "10mb" }));
 
