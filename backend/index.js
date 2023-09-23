@@ -6,11 +6,24 @@ const Stripe = require("stripe");
 const bcrypt = require("bcrypt");
 
 const app = express();
-app.use(cors(
-  {
-    origin:['https://online-food-delivery-jxii.onrender.com']
-  }
-));
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://online-food-delivery-jxii.onrender.com",
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Check if the origin is allowed
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+  })
+);
 app.use(express.json({ limit: "10mb" }));
 
 const PORT = process.env.PORT || 8080;
@@ -114,7 +127,10 @@ app.post("/login", async (req, res) => {
 
 const schemaProduct = mongoose.Schema({
   name: String,
-  category: String,
+  category: {
+    type: String,
+    index: true,
+  },
   image: String,
   price: String,
   description: String,
@@ -130,9 +146,26 @@ app.post("/uploadProduct", async (req, res) => {
 });
 
 app.get("/product", async (req, res) => {
+  console.log("Monkey");
   const data = await productModel.find({});
   res.send(JSON.stringify(data));
 });
+// app.get("/product", async (req, res) => {
+//   const page = parseInt(req.query.page) || 1; // Get page number from query parameter
+//   const perPage = 10; // Set the number of items per page
+
+//   try {
+//     const data = await productModel
+//       .find({})
+//       .skip((page - 1) * perPage)
+//       .limit(perPage);
+
+//     res.json(data);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: "Server error" });
+//   }
+// });
 
 /*****payment getWay */
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
